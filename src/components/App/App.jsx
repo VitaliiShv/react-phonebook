@@ -11,8 +11,7 @@ import {
   getIsLoading,
 } from 'redux/contacts/contacts-selectors';
 import { addContact } from 'redux/operations';
-import { setFilter } from 'redux/filter/filrter-slice';
-import { getFilter } from 'redux/filter/filter-selectors';
+
 import css from './App.module.css';
 
 const App = () => {
@@ -22,11 +21,12 @@ const App = () => {
 
   const contacts = useSelector(getAllContacts);
   const filteredContacts = useSelector(getFilteredContacts);
-  const filter = useSelector(getFilter);
 
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
+
+  console.log(ContactForm);
 
   const isDuplicate = name => {
     if (contacts.find(contact => contact.name === name)) {
@@ -43,28 +43,14 @@ const App = () => {
     dispatch(action);
   };
 
-  // const onDeleteContact = contactId => {
-  //   const action = deleteContact(contactId);
-  //   dispatch(action);
-  // };
-
-  const changeFilter = ({ target }) => {
-    const action = setFilter(target.value);
-    dispatch(action);
-  };
-
   return (
     <div className={css.container}>
-      {/* <h1>Phonebook</h1> */}
       <ContactForm onSubmit={onAddContact} />
-      {/* <h2>Contacts</h2> */}
-      <Filter value={filter} onChange={changeFilter} />
+
+      <Filter />
       {isLoading && !error && <b>Request in progress...</b>}
       {filteredContacts.length > 0 && (
-        <ContactList
-          // onDeleteContact={onDeleteContact}
-          contacts={filteredContacts}
-        />
+        <ContactList contacts={filteredContacts} />
       )}
     </div>
   );
