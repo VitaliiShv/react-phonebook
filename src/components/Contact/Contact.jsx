@@ -1,4 +1,4 @@
-import Button from 'components/shared/Button/Button';
+import Button from 'components/shared/components/Button/Button';
 import { useDispatch } from 'react-redux';
 import { deleteContact } from 'redux/operations';
 
