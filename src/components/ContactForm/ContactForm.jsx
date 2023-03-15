@@ -1,30 +1,10 @@
-import { useState } from 'react';
 import PropTypes from 'prop-types';
 import css from './ContactForm.module.css';
 import initialState from './initialState';
-import useForm from 'components/shared/hooks/useForm';
+import useForm from 'shared/hooks/useForm';
 
 const ContactForm = ({ onSubmit }) => {
   const { state, handleChange, handleSubmit } = useForm(initialState, onSubmit);
-
-  // const [state, setState] = useState({...initialState});
-
-  // const handleChange = event => {
-  //   const { name, value } = event.currentTarget;
-  //   setState(prevState => {
-  //     return { ...prevState, [name]: value };
-  //   });
-  // };
-
-  // const handleSubmit = event => {
-  //   event.preventDefault();
-  //   onSubmit({...state});
-  //   resetForm({...initialState});
-  // };
-
-  const resetForm = () => {
-  setState({ name: '', number: '' });
-};
   const { name, number } = state;
   return (
     <form className={css.contactForm} onSubmit={handleSubmit}>
