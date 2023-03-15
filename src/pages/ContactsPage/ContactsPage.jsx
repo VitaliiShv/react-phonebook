@@ -3,14 +3,14 @@ import Filter from 'components/Filter/Filter';
 import ContactList from 'components/ContactList/ContactList';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchContacts } from 'redux/operations';
+import { fetchContacts } from 'redux/contacts/contacts-operations';
 import {
   getAllContacts,
   getError,
   getFilteredContacts,
   getIsLoading,
 } from 'redux/contacts/contacts-selectors';
-import { addContact } from 'redux/operations';
+import { addContact } from 'redux/contacts/contacts-operations';
 
 import css from './ContactsPage.module.css';
 
