@@ -26,8 +26,6 @@ const ContactsPage = () => {
     dispatch(fetchContacts());
   }, [dispatch]);
 
-
-
   const isDuplicate = name => {
     if (contacts.find(contact => contact.name === name)) {
       alert(`${name} is already in contact list`);
@@ -51,6 +49,7 @@ const ContactsPage = () => {
       {filteredContacts.length > 0 && (
         <ContactList contacts={filteredContacts} />
       )}
+      {filteredContacts.length <= 0 && <p>sorry... something bad happens</p>}
     </div>
   );
 };

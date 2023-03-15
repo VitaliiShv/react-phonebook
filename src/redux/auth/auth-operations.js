@@ -3,10 +3,10 @@ import * as api from '../../shared/api/auth';
 
 export const signup = createAsyncThunk(
   'auth/signup',
-  async (data, { rejectWithValue }) => {
+  async (userData, { rejectWithValue }) => {
     try {
-      const { data: result } = await api.signup(data);
-      return result;
+      const data = await api.signup(userData);
+      return data;
     } catch ({ response }) {
       return rejectWithValue(response);
     }
@@ -15,10 +15,10 @@ export const signup = createAsyncThunk(
 
 export const login = createAsyncThunk(
   'auth/login',
-  async (data, { rejectWithValue }) => {
+  async (userData, { rejectWithValue }) => {
     try {
-      const { data: result } = await api.login(data);
-      return result;
+      const data = await api.login(userData);
+      return data;
     } catch ({ response }) {
       return rejectWithValue(response);
     }

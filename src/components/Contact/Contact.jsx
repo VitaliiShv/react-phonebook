@@ -11,14 +11,12 @@ const Contact = ({ id, name, number }) => {
   };
 
   return (
-    <>
-      <div>
-        <p>
-          {name}: {number}
-        </p>
-      </div>
+    <div>
+      <p>
+        {name}: {number}
+      </p>
       <Button onClick={() => onDeleteContact(id)}>Delete contact</Button>
-    </>
+    </div>
   );
 };
 
