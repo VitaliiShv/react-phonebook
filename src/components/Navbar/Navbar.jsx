@@ -7,22 +7,14 @@ import AuthMenu from './AuthMenu/AuthMenu';
 import UserMenu from './UserMenu/UserMenu';
 
 const Navbar = () => {
-  // const elements = items.map(({ id, text, link }) => (
-  //   <li key={id}>
-  //     <NavLink className={css.link} to={link}>
-  //       {text}
-  //     </NavLink>
-  //   </li>
-  // ));
-
-  const isLogin = useSelector(isUserLogin);
+    const isLogin = useSelector(isUserLogin);
   
-
-  return <div className={css.items}>
-    <p>navbar</p>
-    {!isLogin && <AuthMenu />}
-    {isLogin && <UserMenu />}
-  </div>
+  return (
+    <div className={css.items}>
+      <p>navbar</p>
+      {!isLogin && <AuthMenu />}
+      {isLogin && <UserMenu />}
+    </div>)
   ;
   // <ul className={css.menu}>{elements}</ul>
 };

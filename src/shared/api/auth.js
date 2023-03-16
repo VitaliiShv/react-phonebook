@@ -8,7 +8,7 @@ const setToken = token => {
   if (token) {
     return (instance.defaults.headers.authorization = `Bearer ${token}`);
   }
-  return (instance.defaults.headers.authorization = '');
+  instance.defaults.headers.authorization = '';
 };
 
 export const signup = async userData => {
@@ -27,11 +27,18 @@ export const getCurrent = async token => {
   try {
     setToken(token);
     const { data } = await instance.get('/users/current');
+    console.log(data);
     return data;
   } catch (error) {
     setToken();
     throw error;
   }
+};
+
+export const logout = async token => {
+  const { data } = await instance.post('users/logout');
+  setToken();
+  return data;
 };
 
 export default instance;

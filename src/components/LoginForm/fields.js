@@ -12,6 +12,7 @@ const fields = {
     required: true,
     label: 'Password',
     placeholder: 'password',
+    autoComplete: 'current-password',
   },
 };
 
