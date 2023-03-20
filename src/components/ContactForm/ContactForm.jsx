@@ -1,10 +1,9 @@
-import PropTypes from 'prop-types';
-// import css from './ContactForm.module.css';
-import TextField from 'shared/components/TextField/TextField';
-import Button from 'shared/components/Button/Button';
-import fields from './fields';
-import initialState from './initialState';
-import useForm from 'shared/hooks/useForm';
+import PropTypes from "prop-types";
+import { Box, TextField } from "@mui/material";
+import SubmitButton from "shared/components/SubmitButton/SubmitButton";
+import fields from "./fields";
+import initialState from "./initialState";
+import useForm from "shared/hooks/useForm";
 
 const ContactForm = ({ onSubmit }) => {
   const { state, handleChange, handleSubmit } = useForm({
@@ -13,15 +12,24 @@ const ContactForm = ({ onSubmit }) => {
   });
   const { name, number } = state;
   return (
-    <form onSubmit={handleSubmit}>
-      <TextField value={name} handleChange={handleChange} {...fields.name} />
+    <Box
+      component="form"
+      sx={{
+        "& .MuiTextField-root": { m: 1, width: "100%" },
+      }}
+      noValidate
+      autoComplete="off"
+      onSubmit={handleSubmit}
+    >
       <TextField
-        value={number}
-        handleChange={handleChange}
-        {...fields.number}
+        autoComplete="on"
+        value={name}
+        onChange={handleChange}
+        {...fields.name}
       />
-      <Button type="submit">Add contact</Button>
-    </form>
+      <TextField value={number} onChange={handleChange} {...fields.number} />
+      <SubmitButton type="submit">Add contact</SubmitButton>
+    </Box>
   );
 };
 

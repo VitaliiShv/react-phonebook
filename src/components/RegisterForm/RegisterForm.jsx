@@ -1,22 +1,37 @@
-import TextField from "shared/components/TextField/TextField";
+// import TextField from "shared/components/TextField/TextField";
 import useForm from "shared/hooks/useForm";
 import initialState from "./initialState";
 import fields from "./fields";
-import Button from "shared/components/Button/Button";
+import SubmitButton from "shared/components/SubmitButton/SubmitButton";
+import { Box, TextField } from "@mui/material";
 
 const RegisterForm = ({ onSubmit }) => {
-    const { state, handleChange, handleSubmit } = useForm({initialState, onSubmit});
-    const { name, email, password } = state;
-    
+  const { state, handleChange, handleSubmit } = useForm({
+    initialState,
+    onSubmit,
+  });
+  const { name, email, password } = state;
 
-    return (
-        <form onSubmit={handleSubmit}>
-            <TextField value={name} handleChange={handleChange} {...fields.name} />
-            <TextField value={email} handleChange={handleChange} {...fields.email} />
-            <TextField value={password} handleChange={handleChange} {...fields.password} />
-            <Button type="submit">Register</Button>
-        </form>
-    )
+  return (
+    <Box
+      component="form"
+      sx={{
+        "& .MuiTextField-root": { m: 1, width: "100%" },
+      }}
+      noValidate
+      autoComplete="on"
+      onSubmit={handleSubmit}
+    >
+      <TextField value={name} onChange={handleChange} {...fields.name} />
+      <TextField value={email} onChange={handleChange} {...fields.email} />
+      <TextField
+        value={password}
+        onChange={handleChange}
+        {...fields.password}
+      />
+      <SubmitButton type="submit">Register</SubmitButton>
+    </Box>
+  );
 };
 
 export default RegisterForm;

@@ -1,24 +1,24 @@
 const fields = {
   name: {
-    type: 'text',
-    name: 'name',
+    type: "text",
+    name: "name",
     required: true,
-    label: 'Username',
-    placeholder: 'Username',
+    label: "Username",
+    placeholder: "Username",
   },
   email: {
-    type: 'email',
-    name: 'email',
+    type: "email",
+    name: "email",
     required: true,
-    label: 'Email',
-    placeholder: 'email',
+    label: "Email",
+    placeholder: "Email",
   },
   password: {
-    type: 'password',
-    name: 'password',
+    type: "password",
+    name: "password",
     required: true,
-    label: 'Password',
-    placeholder: 'password',
+    label: "Password",
+    placeholder: "Password",
   },
 };
 
