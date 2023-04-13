@@ -1,6 +1,6 @@
 import { Button, styled } from "@mui/material";
 
-const SubmitButton = ({ type = "button", onClick, children }) => {
+const SubmitButton = ({ type = "button", onClick, disabled, children }) => {
   const StyledButton = styled(Button)({
     display: "inline-flex",
     marginLeft: "20px",
@@ -24,7 +24,7 @@ const SubmitButton = ({ type = "button", onClick, children }) => {
   });
 
   return (
-    <StyledButton onClick={onClick} type={type}>
+    <StyledButton disabled={disabled} onClick={onClick} type={type}>
       {children}
     </StyledButton>
   );

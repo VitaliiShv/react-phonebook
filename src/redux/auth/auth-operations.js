@@ -1,20 +1,21 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
-import * as api from '../../shared/api/auth';
+import { createAsyncThunk } from "@reduxjs/toolkit";
+import * as api from "../../shared/api/auth";
 
 export const signup = createAsyncThunk(
-  'auth/signup',
+  "auth/signup",
   async (userData, { rejectWithValue }) => {
     try {
       const data = await api.signup(userData);
       return data;
     } catch ({ response }) {
+      console.log(response);
       return rejectWithValue(response);
     }
   }
 );
 
 export const login = createAsyncThunk(
-  'auth/login',
+  "auth/login",
   async (userData, { rejectWithValue }) => {
     try {
       const data = await api.login(userData);
@@ -26,7 +27,7 @@ export const login = createAsyncThunk(
 );
 
 export const current = createAsyncThunk(
-  'auth/current',
+  "auth/current",
   async (_, { rejectWithValue, getState }) => {
     try {
       const { auth } = getState();
@@ -47,7 +48,7 @@ export const current = createAsyncThunk(
 );
 
 export const logout = createAsyncThunk(
-  'auth/logout',
+  "auth/logout",
   async (_, { rejectWithValue }) => {
     try {
       const data = await api.logout();
