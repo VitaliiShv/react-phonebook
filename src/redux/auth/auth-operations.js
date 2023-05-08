@@ -20,8 +20,8 @@ export const login = createAsyncThunk(
     try {
       const data = await api.login(userData);
       return data;
-    } catch ({ response }) {
-      return rejectWithValue(response);
+    } catch (error) {
+      return rejectWithValue(error);
     }
   }
 );

@@ -8,7 +8,7 @@ import LoginForm from "components/LoginForm/LoginForm";
 const LoginPage = () => {
   const dispatch = useDispatch();
 
-  const handleLogin = data => {
+  const handleLogin = (data) => {
     dispatch(login(data));
   };
 
