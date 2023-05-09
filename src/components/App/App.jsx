@@ -1,5 +1,4 @@
 import Navbar from "components/Navbar/Navbar";
-// import css from './App.module.css';
 import UserRoutes from "components/UserRoutes";
 
 import { useEffect } from "react";

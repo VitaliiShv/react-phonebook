@@ -1,6 +1,4 @@
 import PropTypes from "prop-types";
-// import css from "./ContactList.module.css";
-// import Contact from "components/Contact/Contact";
 import { useDispatch } from "react-redux";
 import { deleteContact } from "redux/contacts/contacts-operations";
 import {
@@ -17,9 +15,8 @@ import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 const ContactList = ({ contacts }) => {
   const dispatch = useDispatch();
 
-  const onDeleteContact = contactId => {
-    const action = deleteContact(contactId);
-    dispatch(action);
+  const onDeleteContact = (contactId) => {
+    dispatch(deleteContact(contactId));
   };
 
   const elements = contacts.map(({ id, name, number }) => (

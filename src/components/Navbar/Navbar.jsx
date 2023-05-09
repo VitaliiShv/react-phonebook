@@ -1,10 +1,8 @@
 import { useSelector } from "react-redux";
 import { isUserLogin } from "redux/auth/auth-selectors";
 import { Link } from "react-router-dom";
-
 import AuthMenu from "./AuthMenu/AuthMenu";
 import UserMenu from "./UserMenu/UserMenu";
-
 import { Container, Box, Stack, Typography } from "@mui/material";
 
 const Navbar = () => {
